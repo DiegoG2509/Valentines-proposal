@@ -1,0 +1,367 @@
+/* Valentine's Day Proposal for Nisi */
+:root {
+    --primary-pink: #ff6b9d;
+    --soft-pink: #ffb3c6;
+    --light-pink: #ffe0e9;
+    --deep-red: #c9184a;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --shadow: rgba(201, 24, 74, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--light-pink) 0%, var(--soft-pink) 50%, var(--primary-pink) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Falling Hearts Animation */
+.falling-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+/* Main Container */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 20px 60px var(--shadow);
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+/* Header Section */
+.header {
+    margin-bottom: 30px;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--deep-red);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-pink);
+    font-weight: 600;
+}
+
+/* Image Section */
+.image-section {
+    margin: 30px 0;
+}
+
+.image-container {
+    width: 100%;
+    height: 250px;
+    border: 3px dashed var(--primary-pink);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: var(--light-pink);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.image-container:hover {
+    border-color: var(--deep-red);
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.placeholder-text {
+    color: var(--primary-pink);
+    font-size: 1rem;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 17px;
+}
+
+/* Message Section */
+.message-section {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.question {
+    font-size: 1.2rem;
+    color: var(--deep-red);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.editable-message {
+    background: linear-gradient(135deg, var(--light-pink) 0%, var(--white) 100%);
+    border: 2px solid var(--soft-pink);
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 100px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.editable-message:focus {
+    border-color: var(--deep-red);
+    box-shadow: 0 5px 20px var(--shadow);
+}
+
+.editable-message:empty:before {
+    content: attr(data-placeholder);
+    color: var(--primary-pink);
+}
+
+/* Buttons Section */
+.buttons-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    position: relative;
+    min-height: 60px;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--deep-red) 100%);
+    color: white;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.btn-yes:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 40px var(--shadow);
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #ccc 0%, #999 100%);
+    color: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.btn-no:hover {
+    transform: translateY(-3px);
+}
+
+/* Celebration Overlay */
+.celebration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease;
+}
+
+.celebration-overlay.show {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.celebration-content {
+    text-align: center;
+    animation: bounceIn 1s ease;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.celebration-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    color: var(--deep-red);
+    margin-bottom: 20px;
+    animation: heartBeat 1s ease infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1.2); }
+    75% { transform: scale(1.1); }
+}
+
+.celebration-subtext {
+    font-size: 2rem;
+    color: var(--primary-pink);
+    margin-bottom: 30px;
+}
+
+.hearts-celebration {
+    font-size: 3rem;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hearts-celebration span {
+    display: inline-block;
+    margin: 0 10px;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.hearts-celebration span:nth-child(2) { animation-delay: 0.2s; }
+.hearts-celebration span:nth-child(3) { animation-delay: 0.4s; }
+.hearts-celebration span:nth-child(4) { animation-delay: 0.6s; }
+.hearts-celebration span:nth-child(5) { animation-delay: 0.8s; }
+
+/* Music Toggle Button */
+.music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--deep-red) 100%);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 20px var(--shadow);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+}
+
+.music-toggle.playing {
+    animation: musicNote 1s ease infinite;
+}
+
+@keyframes musicNote {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+        width: 95%;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .image-container {
+        height: 200px;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .buttons-section {
+        gap: 20px;
+    }
+    
+    .celebration-text {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .buttons-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+    }
+}
+

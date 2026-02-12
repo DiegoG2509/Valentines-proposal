@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine, Nisiawita?</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="falling-hearts" id="fallingHearts"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Will You Be My Valentine?</h1>
+            <h2 class="subtitle">For My Godess Nisiawita 💕</h2>
+        </div>
+
+        <div class="content">
+            <!-- Image Attachment Section -->
+            <div class="image-section">
+                <div class="image-container" id="imageContainer">
+                    <span class="placeholder-text" style="display: none;">Select picture</span>
+                    <img id="previewImage" class="preview-image" src="image.jpg" alt="Our photo">
+                </div>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            </div>
+
+            <!-- Personal Message Section -->
+            <div class="message-section">
+                <p class="question">My Dearest Nisiawita,</p>
+                <div class="editable-message" contenteditable="true" id="personalMessage">
+                    My beautiful Nisiawita,<br><br>
+                    Desde el momento en que te conocí, mi vida cambió para siempre. Cada día contigo se siente como un hermoso regalo, y no puedo imaginar pasar mi vida sin ti,<br><br>
+                    ¿Me harías la persona más feliz del mundo y serías mi San Valentín? Incluso desde la distancia.<br><br>
+                    Forever yours<br>
+                </div>
+            </div>
+
+            <!-- Buttons Section -->
+            <div class="buttons-section">
+                <button class="btn btn-yes" id="yesBtn">Yes 💖</button>
+                <button class="btn btn-no" id="noBtn">No 😢</button>
+            </div>
+        </div>
+
+        <!-- Celebration Overlay -->
+        <div class="celebration-overlay" id="celebrationOverlay">
+            <div class="celebration-content">
+                <h1 class="celebration-text">TE AMO! 💕</h1>
+                <p class="celebration-subtext">Gracias por hacerme el hombre mas feliz, TE AMO! ❤️</p>
+                <div class="hearts-celebration">
+                    <span>💖</span><span>💕</span><span>💗</span><span>💓</span><span>💖</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button class="music-toggle" id="musicToggle">🎵</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
